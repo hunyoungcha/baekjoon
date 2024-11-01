@@ -1,27 +1,27 @@
-def D(num):
-    global q
-    if len(q)!=0:
-        if num=='1':
-            q.remove(max(q))
-        elif num=='-1':
-            q.remove(min(q))
+import heapq
 
+def insert(num):
+    heapq.heappush(max_q,-num)
+    heapq.heappush(min_q,num)
 
-def I(num):
-    global q
-    q.append(int(num))
+def delete(num):
+    if num==1:
+        heapq.heappop(max_q)
+        heapq.heappop(-min_q)
 
 
 a=int(input())
 for i in range(a):
     b=int(input())
-    q=[]
+    max_q=[]
+    min_q=[]
     for j in range(b):
         id,num=map(str,input().split())
+        num=int(num)
         if id=='I':
-            I(num)
+            insert(num)
         elif id=='D':
-            D(num)
+            delete(num)
     if len(q)!=0:
         print(f'{max(q)} {min(q)}')
     else:

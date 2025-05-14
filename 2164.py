@@ -1,13 +1,13 @@
-class Node:
-    def __init__(self,data):
-        self.data=data
-        self.next=None
+from collections import deque
 
+dq = deque()
+n = int(input())
 
+[dq.append(i) for i in range(1,n+1)]
 
+while len(dq) != 1:
+    dq.popleft()
+    q= dq.popleft()
+    dq.append(q)
 
-n=int(input())
-for i in range(1,n+1):
-    Node(i)
-
-    
+print(dq.pop())

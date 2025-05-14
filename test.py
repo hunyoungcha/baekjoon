@@ -1,11 +1,3 @@
-q = int(input())
+a= {'1' :'1'}
 
-w = list(map(int,input().split()))
-e = list(map(int,input().split()))
-
-cnt=0
-
-for i in range(q):
-    if w[i] <= e[i] : cnt+=1
-
-print(cnt)
+print('1' in a )
